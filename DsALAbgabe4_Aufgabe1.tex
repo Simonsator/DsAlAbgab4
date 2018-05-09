@@ -1,0 +1,17 @@
+\section{Trinäre Suche}
+Wir betrachten die Größe des Arrays im schlimmsten Fall, bei einer erfolglosen Suche. Dieser tritt ein, wenn die letzte else - Bedingung (im Code ab Zeile 14) ausgeführt wird. Sei nun im Folgenen l = left und r = right. \\
+$lmid - l = \lceil(2l + 3) / 3\rceil - l = \lceil(r - l) / 3\rceil = \lceil(n - 1) / 3\rceil $ \\
+oder: \\
+$r - rmid = r - \lfloor(l - 2r) / 3\rfloor = \lceil(r - l) / 3\rceil = \lceil(n - 1) / 3\rceil $ \\
+Im schlimmsten Fall ist die neue Größe des Arrays also: $ \lceil(n - 1) / 3\rceil $ \\
+Daraus ergibt sich folgende Rekursionsgleichung: \\
+$S(n) = \begin{cases}
+     0 & \text{f"ur }n = 0 \\
+    1 + S(\lceil(n - 1) / 2\rceil) & \text{f"ur }n > 0 \\
+   \end{cases}$ \\
+Da der Spezialfall n = $\frac{3^k - 1}{2}$ lässt sich daraus herleiten: $ \lceil(n - 1) / 3\rceil $ = $ \lceil(\frac{3^k - 1}{2} - 1) / 3\rceil $ = $ \lceil(3^k - 3) / 6\rceil $ = $ \lceil3^{k-2} - \frac{1}{2}\rceil $ = $3^{k-2}$ \\
+Daher gilt für k > 0 nach der Definition $S(n) = 1 + S(\lceil(n - 1) / 2\rceil)$, dass S($\frac{3^k - 1}{2}$) = $1 + S(3^{k-2})$ und damit S($\frac{3^k - 1}{2}$) = k - 2\\
+Vermutung: $S(3^k) = 1 + S(3^{k-2}).$ \\
+$S(n)$ steigt monoton, da für n=0  S(n)=0, n=1 S(n)=1, n=2 S(n)=2, n=3 S(n)=2, n=4 S(n)=2, n=5 S(n)=3 etc. Also ist $ S(n)= k-2$, falls $3^k <= n < 3^{k-2}$. \\
+Oder: falls $k <= log_3(n) < k-2.$ \\
+Dann ist $S(n) = \lfloor log_3(n)\rfloor + 1$

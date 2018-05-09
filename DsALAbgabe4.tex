@@ -1,0 +1,74 @@
+% Definierung des Layouts. Article wird fuer wissenschaftliche Texte genutzt
+\documentclass{article}
+% Definierung in welcher Kodierung die Datei gelesen werden soll (sonst werden Umlaute nicht unerstuetzt)
+\usepackage[utf8]{inputenc}
+% Korrekte Silbentrennung im Deutschen
+\usepackage[ngerman]{babel}
+
+% Importierung der Mathe Zeichen Anfang
+\usepackage[sumlimits,intlimits,namelimits]{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{graphicx} 
+\usepackage{verbatim}
+\usepackage{epsf}
+\newcommand{\R}{\mbox{I}\!\mbox{R}}
+\newcommand{\N}{\mbox{I}\!\mbox{N}}
+\newcommand{\Rn}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator{\Div}{div}
+ % Importierung der Mathe Zeichen Ende
+
+\usepackage{listings}
+\usepackage{color}
+\definecolor{name}{rgb}{0.5,0.5,0.5}
+\definecolor{javapurple}{rgb}{0.25,0.35,0.75}
+\DeclareUnicodeCharacter{00A0}{~}
+\lstset{language=Java,
+basicstyle=\ttfamily,
+keywordstyle=\color{javapurple}\bfseries,
+numbers=left,
+numberstyle=\tiny\color{black},
+stepnumber=1,
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false}
+
+
+% Definierung von Titel Autor und Datum Anfang
+\title{Datenstrukturen und Algorithmen, Abgabe 4}
+\author{Beccard, Vincent, 377979; Braun, Basile 388542; Brungs, Simon, 377281}
+\date{\today}
+% Definierung von Titel Autor und Datum Ende
+
+%Definierung von Kopfzeile und Fuszzeile Anfang
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\chead{Beccard, Vincent, 377979; Braun, Basile 388542; Brungs, Simon, 377281; Nummer der Übungsgruppe: 22}
+\cfoot[\pagemark]{\pagemark}
+%Definierung von Kopfzeile und Fuszzeile Anfang
+\usepackage{amsmath}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+%Der Anfang des eigentlichen Dokuments
+\begin{document}
+%Erstellung der Kopfzeile des ersten Dokumentes
+\noindent
+Gruppennummer: 22%% \hspace{\fill} right-hand text
+\begingroup
+\let\newpage\relax% Void the actions of \newpage
+% Generierung des Titels
+\maketitle
+\endgroup
+%Dieses Kommando wird genutzt damit Subsections mit a und b anfangen anstatt mit 1.1 und 1.2
+\renewcommand{\thesubsection}{\alph{subsection}}
+% Beginn der Importierung von den Lösungen der Aufgaben Dateiein
+\input{DsALAbgabe4_Aufgabe1.tex}
+\input{DsALAbgabe4_Aufgabe2.tex}
+\input{DsALAbgabe4_Aufgabe3.tex}
+\input{DsALAbgabe4_Aufgabe4.tex}
+% Beginn der Importierung von den Lösungen der Aufgaben Dateiein
+\end{document}
+%Beendigung des eigentlichen Dokuments

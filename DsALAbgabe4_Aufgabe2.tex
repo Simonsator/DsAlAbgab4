@@ -1,0 +1,7 @@
+\section{Bilineare Suche}
+\subsection{Worst-Case Laufzeit$W(n)$}
+Die Worst-Case Laufzeit ist $W(n)=n-1$, da beide Seiten das Element K finden müssen. Dies dauert umso länger, desto weiter das Element vom Ende/Anfang entfernt ist. Somit ist der schlimmste Fall wenn das Element am Ende/Anfang liegt, da so damit der weiter entfernte Zeiger erst einmal über alle anderen Elemente drüber laufen muss, also über $n - 1$ Elemente.
+\subsection{Best-Case Laufzeit $B(n)$}
+Die Best-Case Laufzeit ist $B(n)= \lfloor \dfrac{n}{2} \rfloor$, da damit der Weg von beiden Seiten des Arrays am kürzesten ist das Element in der Mitte liegen muss. Somit müssen die Zeiger jeweils die Hälfte des Arrays durchlaufen, um das Element zu finden.
+\subsection{Average-Case Laufzeit $A(n)$}
+Die Average-Case Laufzeit ist $A(n) = \dfrac{\sum\nolimits_{i=1}^{\lceil \dfrac{n}{2} \rceil -1} n - i}{\lceil \dfrac{n}{2} \rceil} +  \dfrac{\lfloor \dfrac{n}{2} \rfloor}{\lceil \dfrac{n}{2+2*(n \Mod{2})} \rceil}$. Im ersten Teil der Formel, wird die Dauer für die Hälfte aller möglichen Fälle, ohne den Best-Case, summiert, und dann durch die Hälfte der Anzahl der Fälle geteilt, so dass man die Durchschnittslaufzeit ohne den Best-Case für die Hälfte der Fälle erhält, die gleich der Durchschnittslaufzeit ohne den Best-Case für alle Fälle ist. Im nächsten Teil der Formel wird dann noch die Laufzeit für den Best-Case hinzu addiert, geteilt durch die Wahrscheinlichkeit, dass dieser Auftritt. Somit erhält man die Formel für die Average-Case Laufzeit.
